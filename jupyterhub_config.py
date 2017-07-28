@@ -48,12 +48,22 @@ c.JupyterHub.hub_port = 8080
 
 # TLS config
 c.JupyterHub.port = 443
-c.JupyterHub.ssl_key = os.environ['SSL_KEY']
-c.JupyterHub.ssl_cert = os.environ['SSL_CERT']
+# c.JupyterHub.ssl_key = os.environ['SSL_KEY']
+# c.JupyterHub.ssl_cert = os.environ['SSL_CERT']
 
 # Authenticate users with GitHub OAuth
-c.JupyterHub.authenticator_class = 'oauthenticator.GitHubOAuthenticator'
-c.GitHubOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
+# c.JupyterHub.authenticator_class = 'oauthenticator.GitHubOAuthenticator'
+# c.GitHubOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
+
+
+c.JupyterHub.authenticator_class = 'ldapauthenticator.ldapauthenticator.LDAPLocalAuthenticator'
+
+c.LDAPAuthenticator.server_address = 'ldap-vip1.int.janelia.org'
+
+c.LDAPAuthenticator.bind_dn_template = 'cn={username},ou=People,dc=hhmi,dc=org'
+
+c.LDAPAuthenticator.use_ssl = False
+
 
 # Persist hub data on volume mounted inside container
 data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
