@@ -34,7 +34,7 @@ services:
     command: >
       jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
     networks:
-      - ${DOCKER_NETWORK_NAME}
+      - swarm-net
 
 volumes:
   data:
@@ -42,6 +42,6 @@ volumes:
       name: ${DATA_VOLUME_HOST}
 
 networks:
-  jupyter-network:
+  swarm-net:
     external:
       name: ${DOCKER_NETWORK_NAME}
