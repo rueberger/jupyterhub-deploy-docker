@@ -10,6 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile.jupyterhub
     image: jupyterhub
+    container_name: jupyterhub
     volumes:
       # Bind Docker socket on the host so we can connect to the daemon from
       # within the container
