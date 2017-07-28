@@ -2,7 +2,7 @@
 # Distributed under the terms of the Modified BSD License.
 
 # JupyterHub docker-compose configuration file
-version: "3"
+version: "2"
 
 services:
   hub:
@@ -34,8 +34,6 @@ services:
       OAUTH_CALLBACK_URL: ${OAUTH_CALLBACK_URL}
     command: >
       jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
-    networks:
-      - ${DOCKER_NETWORK_NAME}
 
 volumes:
   data:
