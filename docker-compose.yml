@@ -42,6 +42,6 @@ volumes:
       name: ${DATA_VOLUME_HOST}
 
 networks:
-  default:
+  ${DOCKER_NETWORK_NAM}:
     external:
       name: ${DOCKER_NETWORK_NAME}
