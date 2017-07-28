@@ -42,6 +42,6 @@ volumes:
       name: ${DATA_VOLUME_HOST}
 
 networks:
-  ${DOCKER_NETWORK_NAME}:
+  jupyter-network:
     external:
       name: ${DOCKER_NETWORK_NAME}
