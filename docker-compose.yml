@@ -34,7 +34,7 @@ services:
     command: >
       jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
     network:
-    name: ${DOCKER_NETWORK_NAME}
+      - ${DOCKER_NETWORK_NAME}
 
 volumes:
   data:
