@@ -33,7 +33,7 @@ services:
       OAUTH_CALLBACK_URL: ${OAUTH_CALLBACK_URL}
     command: >
       jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
-    network:
+    networks:
       - ${DOCKER_NETWORK_NAME}
 
 volumes:
