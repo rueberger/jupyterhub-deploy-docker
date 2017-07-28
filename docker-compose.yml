@@ -33,8 +33,6 @@ services:
       OAUTH_CALLBACK_URL: ${OAUTH_CALLBACK_URL}
     command: >
       jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
-    networks:
-      - swarm-net
 
 volumes:
   data:
@@ -42,6 +40,6 @@ volumes:
       name: ${DATA_VOLUME_HOST}
 
 networks:
-  swarm-net:
+  default:
     external:
       name: ${DOCKER_NETWORK_NAME}
