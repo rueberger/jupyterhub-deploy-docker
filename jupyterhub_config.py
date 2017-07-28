@@ -10,6 +10,8 @@ c = get_config()
 # avoid having to rebuild the JupyterHub container every time we change a
 # configuration parameter.
 
+
+
 # Spawn single-user servers as Docker containers
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 # Spawn containers from this image
@@ -56,7 +58,7 @@ c.JupyterHub.port = 443
 # c.GitHubOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
 
 
-c.JupyterHub.authenticator_class = 'ldapauthenticator.ldapauthenticator.LDAPLocalAuthenticator'
+c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
 
 c.LDAPAuthenticator.server_address = 'ldap-vip1.int.janelia.org'
 
