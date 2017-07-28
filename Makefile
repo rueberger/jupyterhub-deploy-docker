@@ -14,13 +14,13 @@ volumes:
 self-signed-cert:
 	# make a self-signed cert
 
-secrets/jupyterhub.crt:
-	@echo "Need an SSL certificate in secrets/jupyterhub.crt"
-	@exit 1
+# secrets/jupyterhub.crt:
+# 	@echo "Need an SSL certificate in secrets/jupyterhub.crt"
+# 	@exit 1
 
-secrets/jupyterhub.key:
-	@echo "Need an SSL key in secrets/jupyterhub.key"
-	@exit 1
+# secrets/jupyterhub.key:
+# 	@echo "Need an SSL key in secrets/jupyterhub.key"
+# 	@exit 1
 
 userlist:
 	@echo "Add usernames, one per line, to ./userlist, such as:"
@@ -28,13 +28,13 @@ userlist:
 	@echo "    wash"
 	@exit 1
 
-# Do not require cert/key files if SECRETS_VOLUME defined
-secrets_volume = $(shell echo $(SECRETS_VOLUME))
-ifeq ($(secrets_volume),)
-	cert_files=secrets/jupyterhub.crt secrets/jupyterhub.key
-else
-	cert_files=
-endif
+# # Do not require cert/key files if SECRETS_VOLUME defined
+# secrets_volume = $(shell echo $(SECRETS_VOLUME))
+# ifeq ($(secrets_volume),)
+# 	cert_files=secrets/jupyterhub.crt secrets/jupyterhub.key
+# else
+# 	cert_files=
+# endif
 
 check-files: userlist $(cert_files)
 
